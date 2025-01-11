@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
+    "@tsconfig/node22": "^22.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vueuse/core": "^12.3.0",
     "pinia": "^2.3.0",
@@ -27,7 +28,6 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@tsconfig/node22": "^22.0.0",
     "@types/jsdom": "^21.1.7",
     "@types/node": "^22.10.2",
     "@vitest/eslint-plugin": "1.1.20",
