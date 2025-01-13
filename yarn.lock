@@ -5890,6 +5890,7 @@ __metadata:
     vite-svg-loader: "npm:^5.1.0"
     vitest: "npm:^2.1.8"
     vue: "npm:^3.5.13"
+    vue-gtag: "npm:^2.0.1"
     vue-router: "npm:^4.5.0"
     vue-tsc: "npm:^2.1.10"
   languageName: unknown
@@ -6988,6 +6989,15 @@ __metadata:
   peerDependencies:
     eslint: ">=6.0.0"
   checksum: 10c0/128be5988de025b5abd676a91c3e92af68288a5da1c20b2ff848fe90e040c04b2222a03b5d8048cf4a5e0b667a8addfb6f6e6565860d4afb5190c4cc42d05578
+  languageName: node
+  linkType: hard
+
+"vue-gtag@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "vue-gtag@npm:2.0.1"
+  peerDependencies:
+    vue: ^3.0.0
+  checksum: 10c0/beda4e9ed4710f5b18834163278fcb4342d53c8b4d6df76d78c36cc85634fd815bf32a4e0db90d883e14e794549570e4f1337718f80ce90822f00318499d9166
   languageName: node
   linkType: hard
 
