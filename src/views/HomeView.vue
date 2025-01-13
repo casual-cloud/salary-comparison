@@ -1,42 +1,32 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import SalaryForm from '@/components/SalaryForm.vue'
-import { useSalaryStore } from '@/stores/salary'
+import SalaryComponent from '@/components/Salary/SalaryComponent.vue'
+import { useCompanyStore } from '@/stores/company'
 
-const store = useSalaryStore()
+const store = useCompanyStore()
 
 const onRemoveSalary = (index: number) => {
   if (confirm('คุณต้องการลบข้อมูลนี้ใช่หรือไม่?')) {
     store.remove(index)
   }
 }
-
-onMounted(() => {
-  if (store.salaries.length === 0) {
-    store.add()
-  }
-})
 </script>
 
 <template>
   <main>
-    <div
-      class="grid grid-cols-1 gap-4 lg:gap-8"
-      :class="[
-        store.salaries.length > 2 ? 'md:grid-cols-3' : `md:grid-cols-${store.salaries.length + 1}`,
-      ]"
-    >
-      <SalaryForm
-        v-for="(item, index) in store.salaries"
-        :key="index"
-        v-model:company="item.company"
-        v-model:salary.number="item.salary"
-        v-model:bonus.number="item.bonus"
-        v-model:pvdRate.number="item.pvdRate"
-        v-model:contributePVDRate.number="item.contributePVDRate"
-        v-model:allowance.number="item.allowance"
-        @remove="onRemoveSalary(index)"
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+      <SalaryComponent
+        v-model="store.currentCompany"
+        subtitle="บริษัทปัจจุบัน"
+        remove-disabled
+        compare-disabled
       />
+      <template v-for="(item, index) in store.companies" :key="index">
+        <SalaryComponent
+          v-model="store.companies[index]"
+          :subtitle="`บริษัทที่ ${index + 1}`"
+          @remove="onRemoveSalary(index)"
+        />
+      </template>
       <div
         class="flex flex-col p-8 overflow-hidden rounded-lg bg-white shadow-sm dark:bg-gray-800 dark:text-gray-100"
       >
